@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR NAME — Engineering Portfolio</title>
+
+  <!--
+    ============================================================
+    HOW TO EDIT THIS FILE
+    ============================================================
+    1. Replace every "YOUR NAME", "your@email.com", "@username",
+       and other ALL-CAPS placeholders with your own info.
+    2. Inside each tab panel (#panel-school / #panel-personal /
+       #panel-professional), duplicate the <article class="card">
+       block to add more projects. Remove ones you don't need.
+    3. To deploy: push this file to GitHub and enable GitHub Pages
+       (Settings -> Pages -> Deploy from branch -> main / root).
+    ============================================================
+  -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --ink: #0a0a0a;
+      --accent: #ffee00;
+    }
+    * { border-radius: 0 !important; }
+    html, body { background: var(--bg); color: var(--ink); }
+    body { font-family: 'Space Grotesk', system-ui, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+    .brutal { border: 3px solid var(--ink); }
+    .brutal-shadow { box-shadow: 8px 8px 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease; }
+    .brutal-shadow:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--ink); }
+
+    .tab-btn { background: var(--bg); color: var(--ink); }
+    .tab-btn[aria-selected="true"] { background: var(--ink); color: var(--accent); }
+    .tab-panel[hidden] { display: none !important; }
+
+    .link-underline { background-image: linear-gradient(currentColor, currentColor); background-size: 100% 3px; background-repeat: no-repeat; background-position: 0 100%; }
+
+    .marquee { animation: slide 40s linear infinite; }
+    @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    ::selection { background: var(--accent); color: var(--ink); }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="border-b-[3px] border-black">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between mono text-xs font-bold">
+      <span>[PORTFOLIO_v1.0]</span>
+      <span class="hidden sm:inline">LAT 00.000 / LON 00.000</span>
+      <span>STATUS: <span class="bg-black text-[color:var(--accent)] px-2 py-0.5">OPEN_TO_WORK</span></span>
+    </div>
+  </div>
+
+  <!-- Marquee strip -->
+  <div class="border-b-[3px] border-black overflow-hidden bg-[color:var(--accent)]">
+    <div class="marquee whitespace-nowrap mono text-sm font-bold py-2 flex">
+      <span class="px-6">ENGINEER &nbsp;&nbsp;▪&nbsp;&nbsp; BUILDER &nbsp;&nbsp;▪&nbsp;&nbsp; PROBLEM SOLVER &nbsp;&nbsp;▪&nbsp;&nbsp; PORTFOLIO 2025 &nbsp;&nbsp;▪&nbsp;&nbsp;</span>
+      <span class="px-6" aria-hidden="true">ENGINEER &nbsp;&nbsp;▪&nbsp;&nbsp; BUILDER &nbsp;&nbsp;▪&nbsp;&nbsp; PROBLEM SOLVER &nbsp;&nbsp;▪&nbsp;&nbsp; PORTFOLIO 2025 &nbsp;&nbsp;▪&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="border-b-[3px] border-black">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-8">
+        <p class="mono text-xs mb-4">// 01 — INTRODUCTION</p>
+        <h1 class="text-6xl sm:text-7xl md:text-[9rem] font-black leading-[0.9] tracking-tighter">
+          YOUR<br />NAME<span class="text-[color:var(--accent)]">.</span>
+        </h1>
+      </div>
+      <div class="md:col-span-4 md:pb-4">
+        <p class="mono text-xs mb-3">// ROLE</p>
+        <p class="text-xl font-bold leading-tight">
+          Engineer working on [YOUR&nbsp;DOMAIN].
+        </p>
+        <p class="mt-4 leading-snug">
+          Short bio. Two or three sentences about what you build, how you think, and what you&rsquo;re looking for. Keep it sharp.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 pb-10 flex flex-wrap gap-3 mono text-xs">
+      <span class="brutal px-3 py-2 bg-white">[LOCATION: CITY, COUNTRY]</span>
+      <span class="brutal px-3 py-2 bg-white">[FOCUS: SOFTWARE / HARDWARE / ETC]</span>
+      <span class="brutal px-3 py-2 bg-black text-[color:var(--accent)]">[AVAILABLE_FOR_HIRE]</span>
+    </div>
+  </header>
+
+  <!-- ============ WORK ============ -->
+  <main id="work" class="max-w-6xl mx-auto px-6 py-20">
+
+    <div class="flex items-end justify-between mb-10 flex-wrap gap-4">
+      <div>
+        <p class="mono text-xs mb-3">// 02 — WORK</p>
+        <h2 class="text-5xl md:text-6xl font-black tracking-tighter">SELECTED PROJECTS.</h2>
+      </div>
+      <p class="mono text-xs max-w-xs">
+        Click a tab to filter by context. Newest first.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div role="tablist" aria-label="Project categories" class="flex flex-wrap -mb-[3px]">
+      <button
+        role="tab"
+        id="tab-school"
+        aria-controls="panel-school"
+        aria-selected="true"
+        data-tab="school"
+        class="tab-btn mono text-sm font-bold px-5 py-4 border-[3px] border-black border-b-[3px] mr-[-3px]"
+      >
+        SCHOOL PROJECTS
+      </button>
+      <button
+        role="tab"
+        id="tab-personal"
+        aria-controls="panel-personal"
+        aria-selected="false"
+        data-tab="personal"
+        class="tab-btn mono text-sm font-bold px-5 py-4 border-[3px] border-black mr-[-3px]"
+      >
+        PERSONAL PROJECTS
+      </button>
+      <button
+        role="tab"
+        id="tab-professional"
+        aria-controls="panel-professional"
+        aria-selected="false"
+        data-tab="professional"
+        class="tab-btn mono text-sm font-bold px-5 py-4 border-[3px] border-black"
+      >
+        PROFESSIONAL PROJECTS
+      </button>
+    </div>
+
+    <!-- ============ SCHOOL PANEL ============ -->
+    <section
+      id="panel-school"
+      role="tabpanel"
+      aria-labelledby="tab-school"
+      class="tab-panel border-[3px] border-black p-6 md:p-10 bg-white"
+    >
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+
+        <!-- ---------- CARD TEMPLATE ---------- -->
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">SCHOOL · 001</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT NAME</h3>
+          <p class="mb-5 leading-snug">
+            One-paragraph description. What is it, what problem did it solve, what was your role, what was the outcome.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+            <span class="brutal px-2 py-1">TECH_2</span>
+            <span class="brutal px-2 py-1">TECH_3</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CODE →</a>
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">WRITE-UP →</a>
+          </div>
+        </article>
+        <!-- ---------- END CARD TEMPLATE ---------- -->
+
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">SCHOOL · 002</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT NAME</h3>
+          <p class="mb-5 leading-snug">
+            One-paragraph description goes here.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+            <span class="brutal px-2 py-1">TECH_2</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CODE →</a>
+          </div>
+        </article>
+
+        <!-- Duplicate the <article class="card">…</article> block above to add more school projects. -->
+
+      </div>
+    </section>
+
+    <!-- ============ PERSONAL PANEL ============ -->
+    <section
+      id="panel-personal"
+      role="tabpanel"
+      aria-labelledby="tab-personal"
+      class="tab-panel border-[3px] border-black p-6 md:p-10 bg-white"
+      hidden
+    >
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">PERSONAL · 001</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT NAME</h3>
+          <p class="mb-5 leading-snug">
+            What you built on your own time. Why you built it. What you learned.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+            <span class="brutal px-2 py-1">TECH_2</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">LIVE →</a>
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CODE →</a>
+          </div>
+        </article>
+
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">PERSONAL · 002</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT NAME</h3>
+          <p class="mb-5 leading-snug">
+            One-paragraph description goes here.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CODE →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ PROFESSIONAL PANEL ============ -->
+    <section
+      id="panel-professional"
+      role="tabpanel"
+      aria-labelledby="tab-professional"
+      class="tab-panel border-[3px] border-black p-6 md:p-10 bg-white"
+      hidden
+    >
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">PRO · 001</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT OR ROLE NAME</h3>
+          <p class="mono text-xs mb-2">@ COMPANY / CLIENT</p>
+          <p class="mb-5 leading-snug">
+            What the company does, what you worked on, your impact. Numbers help — perf gains, revenue, users, uptime, etc.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+            <span class="brutal px-2 py-1">TECH_2</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CASE STUDY →</a>
+          </div>
+        </article>
+
+        <article class="card brutal brutal-shadow bg-white p-6 flex flex-col">
+          <div class="flex items-start justify-between mb-4 mono text-xs">
+            <span class="bg-black text-[color:var(--accent)] px-2 py-1">PRO · 002</span>
+            <span>YEAR</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 leading-tight">PROJECT OR ROLE NAME</h3>
+          <p class="mono text-xs mb-2">@ COMPANY / CLIENT</p>
+          <p class="mb-5 leading-snug">
+            One-paragraph description goes here.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5 mono text-xs">
+            <span class="brutal px-2 py-1">TECH_1</span>
+          </div>
+          <div class="mt-auto flex gap-3 mono text-xs font-bold">
+            <a href="#" class="brutal px-3 py-2 hover:bg-black hover:text-[color:var(--accent)]">CASE STUDY →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT ============ -->
+  <footer id="contact" class="border-t-[3px] border-black bg-black text-white">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <p class="mono text-xs mb-4 text-[color:var(--accent)]">// 03 — CONTACT</p>
+      <h2 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-12">
+        LET&rsquo;S<br />BUILD<span class="text-[color:var(--accent)]">.</span>
+      </h2>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="mailto:your@email.com" class="brutal border-white p-5 hover:bg-[color:var(--accent)] hover:text-black hover:border-[color:var(--accent)]">
+          <div class="mono text-xs mb-2 opacity-70 group-hover:opacity-100">[EMAIL]</div>
+          <div class="font-bold break-all">your@email.com</div>
+        </a>
+        <a href="https://github.com/YOUR_USERNAME" class="brutal border-white p-5 hover:bg-[color:var(--accent)] hover:text-black hover:border-[color:var(--accent)]">
+          <div class="mono text-xs mb-2 opacity-70">[GITHUB]</div>
+          <div class="font-bold">@YOUR_USERNAME</div>
+        </a>
+        <a href="https://linkedin.com/in/YOUR_USERNAME" class="brutal border-white p-5 hover:bg-[color:var(--accent)] hover:text-black hover:border-[color:var(--accent)]">
+          <div class="mono text-xs mb-2 opacity-70">[LINKEDIN]</div>
+          <div class="font-bold">/in/YOUR_USERNAME</div>
+        </a>
+      </div>
+
+      <div class="mono text-xs mt-20 flex flex-wrap justify-between gap-2 opacity-60">
+        <span>© 2025 — YOUR NAME</span>
+        <span>BUILT WITH HTML + TAILWIND + INTENT</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('[role="tab"]');
+      const panels = document.querySelectorAll('[role="tabpanel"]');
+
+      function activate(id) {
+        tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === id ? 'true' : 'false'));
+        panels.forEach(p => {
+          if (p.id === `panel-${id}`) p.removeAttribute('hidden');
+          else p.setAttribute('hidden', '');
+        });
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activate(tab.dataset.tab));
+        tab.addEventListener('keydown', (e) => {
+          const ids = Array.from(tabs).map(t => t.dataset.tab);
+          const idx = ids.indexOf(tab.dataset.tab);
+          if (e.key === 'ArrowRight') { e.preventDefault(); tabs[(idx + 1) % tabs.length].focus(); activate(ids[(idx + 1) % tabs.length]); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); tabs[(idx - 1 + tabs.length) % tabs.length].focus(); activate(ids[(idx - 1 + tabs.length) % tabs.length]); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
